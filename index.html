@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Improv Trainer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1c1c1c;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 20px 0;
+    }
+    #display-area {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .display-title {
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+    .display-value {
+      font-size: 2rem;
+      margin: 8px 0 20px;
+      font-weight: bold;
+    }
+    /* Add extra styling for the sentence to stand out */
+    #sentenceDisplay {
+      font-size: 2.5rem;           /* Larger font size */
+      color: #ffcc00;              /* A contrasting color */
+      background: #333333;         /* Dark background for contrast */
+      padding: 15px;               /* Extra padding */
+      border-radius: 5px;          /* Rounded corners */
+      margin-top: 20px;            /* More spacing above */
+    }
+    .desc-area {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      opacity: 0.8;
+      font-style: italic;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    button {
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #666;
+    }
+    #lock-options,
+    #lang-toggle {
+      margin: 10px 0;
+      text-align: center;
+    }
+    label {
+      margin: 0 10px;
+    }
+    #toggle-settings-btn {
+      margin: 10px 0;
+    }
+    #settings-panel {
+      display: none;
+      background: #2c2c2c;
+      border: 1px solid #444;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+      max-width: 400px;
+      width: 100%;
+    }
+    .settings-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    .settings-row label {
+      margin-right: 10px;
+    }
+    .settings-row input[type="number"],
+    .settings-row input[type="checkbox"] {
+      padding: 5px;
+      border: 1px solid #555;
+      border-radius: 3px;
+      background: #1c1c1c;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Title -->
+  <h1 id="appTitle">Improv Trainer</h1>
+
+  <!-- Display Area -->
+  <div id="display-area">
+    <div>
+      <!-- Section title for Emotion -->
+      <div class="display-title" id="emotionTitle">Emotion</div>
+      <div class="display-value" id="emotionDisplay">—</div>
+      <div class="desc-area" id="emotionDesc"></div>
+    </div>
+    <div>
+      <!-- Section title for Role -->
+      <div class="display-title" id="roleTitle">Role</div>
+      <div class="display-value" id="roleDisplay">—</div>
+    </div>
+    <div>
+      <!-- Section title for Sentence -->
+      <div class="display-title" id="sentenceTitle">Sentence</div>
+      <!-- Note: The sentence display now has extra styling -->
+      <div class="display-value" id="sentenceDisplay">—</div>
+    </div>
+  </div>
+
+  <!-- Lock Checkboxes -->
+  <div id="lock-options">
+    <label>
+      <input type="checkbox" id="lockEmotion" />
+      <span id="lockEmotionLabel">Lock Emotion</span>
+    </label>
+    <label>
+      <input type="checkbox" id="lockRole" />
+      <span id="lockRoleLabel">Lock Role</span>
+    </label>
+    <label>
+      <input type="checkbox" id="lockSentence" />
+      <span id="lockSentenceLabel">Lock Sentence</span>
+    </label>
+  </div>
+
+  <!-- Language Toggle -->
+  <div id="lang-toggle">
+    <label>
+      <input type="radio" name="lang" value="en" />
+      <span id="langEnglishLabel">English</span>
+    </label>
+    <label>
+      <input type="radio" name="lang" value="et" checked />
+      <span id="langEstonianLabel">Estonian</span>
+    </label>
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-group">
+    <button id="nextEmotionBtn">Next Emotion</button>
+    <button id="nextRoleBtn">Next Role</button>
+    <button id="nextSentenceBtn">Next Sentence</button>
+    <button id="shuffleBtn">Shuffle All</button>
+  </div>
+
+  <!-- Show/Hide Settings -->
+  <button id="toggle-settings-btn">Show Settings</button>
+
+  <!-- Settings Panel -->
+  <div id="settings-panel">
+    <h2 id="settingsHeader">Settings</h2>
+    <div class="settings-row">
+      <label for="emotionInterval" id="emotionIntervalLabel">Emotion Interval (s)</label>
+      <input type="number" id="emotionInterval" min="1" value="10" />
+    </div>
+    <div class="settings-row">
+      <label for="roleInterval" id="roleIntervalLabel">Role Interval (s)</label>
+      <input type="number" id="roleInterval" min="1" value="15" />
+    </div>
+    <div class="settings-row">
+      <label for="sentenceInterval" id="sentenceIntervalLabel">Sentence Interval (s)</label>
+      <input type="number" id="sentenceInterval" min="1" value="20" />
+    </div>
+    <!-- Display Options -->
+    <div class="settings-row">
+      <label for="displayEmotionDesc" id="displayEmotionDescLabel">Display Emotion Description</label>
+      <input type="checkbox" id="displayEmotionDesc" checked />
+    </div>
+    <div class="settings-row">
+      <label for="displayTitles" id="displayTitlesLabel">Display Section Titles</label>
+      <input type="checkbox" id="displayTitles" checked />
+    </div>
+    <button id="saveSettingsBtn">Save Settings</button>
+  </div>
+
+  <!-- Order matters: data scripts first, then main.js -->
+  <script src="emotions.js"></script>
+  <script src="roles.js"></script>
+  <script src="sentences.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
