@@ -1,6 +1,7 @@
 # Improv Trainer
-
 A simple web-based trainer for improvisation that randomly selects and displays emotions, roles, and sentences to inspire improv scenes.
+
+Access the live app here: https://ra13s.github.io/improv-trainer-app/
 
 ## Table of Contents
 
@@ -53,7 +54,7 @@ There are controls for:
 
 ### Emotions and Roles
 
-The `emotions.js` and `roles.js` files contain lists or arrays of possible emotions and roles. These are custom-curated or crowdsourced lists. If you’ve sourced them from external open-licensed data, please acknowledge and include relevant license information here.
+The `emotions.js` and `roles.js` files contain lists or arrays of possible emotions and roles. These are custom-curated or crowdsourced lists. If youâ€™ve sourced them from external open-licensed data, please acknowledge and include relevant license information here.
 
 ### Sentences (Tatoeba Project)
 
@@ -78,6 +79,6 @@ In your own distribution, make sure to maintain this attribution and licensing r
 
 ## License
 
-This project’s **code** (excluding the Tatoeba-sourced sentence data) is released under the [MIT License](./LICENSE). That means you’re free to use, copy, modify, and distribute the code as long as the original MIT license text is included.
+This projectâ€™s **code** (excluding the Tatoeba-sourced sentence data) is released under the [MIT License](./LICENSE). That means youâ€™re free to use, copy, modify, and distribute the code as long as the original MIT license text is included.
 
 The **Tatoeba-derived sentence data** in [`sentences.js`](./sentences.js) remains under [CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/). If you redistribute or modify this data, you must retain the license and attribution information as described above.
