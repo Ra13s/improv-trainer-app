@@ -294,7 +294,9 @@ function initSettingsPanel() {
     sentenceInterval = parseInt(sIntervalInput.value, 10) || defaultSettings.sentenceInterval;
 
     startTimers();
-    alert(uiTranslations[getSelectedLanguage()].settingsSavedAlert);
+    // Hide the settings panel (no alert on save)
+    settingsPanel.style.display = "none";
+    isOpen = false;
   });
 }
 
@@ -334,6 +336,10 @@ function init() {
   document.getElementById("emotionInterval").value = emotionInterval;
   document.getElementById("roleInterval").value = roleInterval;
   document.getElementById("sentenceInterval").value = sentenceInterval;
+  // Also update the slider value displays
+  document.getElementById("emotionIntervalValue").textContent = emotionInterval;
+  document.getElementById("roleIntervalValue").textContent = roleInterval;
+  document.getElementById("sentenceIntervalValue").textContent = sentenceInterval;
 
   // First shuffle and start timers
   shuffleAll();
