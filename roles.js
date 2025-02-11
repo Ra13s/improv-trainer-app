@@ -157,7 +157,7 @@ window.rolesData = [
     },
     {
         "en": "Viking",
-        "et": "Viking"
+        "et": "Viiking"
     },
     {
         "en": "Time Traveler",
@@ -225,7 +225,7 @@ window.rolesData = [
     },
     {
         "en": "Elf",
-        "et": "Haldjas"
+        "et": "Elf"
     },
     {
         "en": "Dwarf",
@@ -273,7 +273,7 @@ window.rolesData = [
     },
     {
         "en": "Race Car Driver",
-        "et": "Rallisõitja"
+        "et": "Autovõidusõitja"
     },
     {
         "en": "Fashion Designer",
@@ -353,7 +353,7 @@ window.rolesData = [
     },
     {
         "en": "Bounty Hunter",
-        "et": "Tagaaotsija"
+        "et": "Pearahakütt"
     },
     {
         "en": "Therapist",
@@ -381,7 +381,7 @@ window.rolesData = [
     },
     {
         "en": "Professional Surfer",
-        "et": "Profisurfer"
+        "et": "Profisurfaja"
     },
     {
         "en": "Archaeologist",
@@ -437,7 +437,7 @@ window.rolesData = [
     },
     {
         "en": "Perfumer",
-        "et": "Parfümeeria"
+        "et": "Parfümeer"
     },
     {
         "en": "Telescope Operator",
@@ -445,7 +445,7 @@ window.rolesData = [
     },
     {
         "en": "Cave Explorer",
-        "et": "Koopadeuurija"
+        "et": "Koobaste uurija"
     },
     {
         "en": "Trebuchet Engineer",
@@ -705,7 +705,7 @@ window.rolesData = [
     },
     {
         "en": "Reformed Villain",
-        "et": "Parandatud Kurikaela"
+        "et": "Heaks pöördunud kurikael"
     },
     {
         "en": "Mysterious Stranger",
@@ -741,7 +741,7 @@ window.rolesData = [
     },
     {
         "en": "Noble Outlaw",
-        "et": "Õilshinged Lindprii"
+        "et": "Õilis Lindprii"
     },
     {
         "en": "Retired Hero",
@@ -779,4 +779,4 @@ window.rolesData = [
         "en": "Lucky Fool",
         "et": "Õnnelik Narr"
     }
-]
+];

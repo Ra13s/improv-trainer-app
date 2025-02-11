@@ -33,12 +33,12 @@
     }
     /* Add extra styling for the sentence to stand out */
     #sentenceDisplay {
-      font-size: 2.5rem;           /* Larger font size */
-      color: #ffcc00;              /* A contrasting color */
-      background: #333333;         /* Dark background for contrast */
-      padding: 15px;               /* Extra padding */
-      border-radius: 5px;          /* Rounded corners */
-      margin-top: 20px;            /* More spacing above */
+      font-size: 2.5rem;
+      color: #ffcc00;
+      background: #333333;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
     }
     .desc-area {
       font-size: 0.9rem;
@@ -94,6 +94,9 @@
     .settings-row label {
       margin-right: 10px;
     }
+    .settings-row input[type="range"] {
+      width: 70%;
+    }
     .settings-row input[type="number"],
     .settings-row input[type="checkbox"] {
       padding: 5px;
@@ -102,11 +105,21 @@
       background: #1c1c1c;
       color: #f0f0f0;
     }
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .settings-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .button-group {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Main Title -->
-  <h1 id="appTitle">Improv Trainer</h1>
 
   <!-- Display Area -->
   <div id="display-area">
@@ -173,15 +186,18 @@
     <h2 id="settingsHeader">Settings</h2>
     <div class="settings-row">
       <label for="emotionInterval" id="emotionIntervalLabel">Emotion Interval (s)</label>
-      <input type="number" id="emotionInterval" min="1" value="10" />
+      <input type="range" id="emotionInterval" min="1" max="120" value="60" step="1" oninput="document.getElementById('emotionIntervalValue').textContent = this.value">
+      <span id="emotionIntervalValue">60</span>
     </div>
     <div class="settings-row">
       <label for="roleInterval" id="roleIntervalLabel">Role Interval (s)</label>
-      <input type="number" id="roleInterval" min="1" value="15" />
+      <input type="range" id="roleInterval" min="1" max="120" value="60" step="1" oninput="document.getElementById('roleIntervalValue').textContent = this.value">
+      <span id="roleIntervalValue">60</span>
     </div>
     <div class="settings-row">
       <label for="sentenceInterval" id="sentenceIntervalLabel">Sentence Interval (s)</label>
-      <input type="number" id="sentenceInterval" min="1" value="20" />
+      <input type="range" id="sentenceInterval" min="1" max="120" value="60" step="1" oninput="document.getElementById('sentenceIntervalValue').textContent = this.value">
+      <span id="sentenceIntervalValue">60</span>
     </div>
     <!-- Display Options -->
     <div class="settings-row">

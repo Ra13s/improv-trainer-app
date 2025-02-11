@@ -9,6 +9,15 @@ let sentencesDataEn = window.sentencesDataEn || [];
 let sentencesDataEt = window.sentencesDataEt || [];
 
 /************************************************
+ * Default Settings
+ ************************************************/
+const defaultSettings = {
+  emotionInterval: 60,
+  roleInterval: 60,
+  sentenceInterval: 60
+};
+
+/************************************************
  * UI Translations
  ************************************************/
 const uiTranslations = {
@@ -76,7 +85,7 @@ function getSelectedLanguage() {
   for (let r of radios) {
     if (r.checked) return r.value;
   }
-  return "en"; // default
+  return "en"; // fallback default if none is checked
 }
 
 /************************************************
@@ -85,9 +94,12 @@ function getSelectedLanguage() {
 function updateUITranslations() {
   const lang = getSelectedLanguage();
 
-  // Update document title and main header
+  // Update document title and main header (if an element with id "appTitle" exists)
   document.title = uiTranslations[lang].title;
-  document.getElementById("appTitle").textContent = uiTranslations[lang].title;
+  const appTitle = document.getElementById("appTitle");
+  if (appTitle) {
+    appTitle.textContent = uiTranslations[lang].title;
+  }
 
   // Update display area titles
   document.getElementById("emotionTitle").textContent = uiTranslations[lang].emotionTitle;
@@ -143,19 +155,21 @@ const lockEmotion = document.getElementById("lockEmotion");
 const lockRole = document.getElementById("lockRole");
 const lockSentence = document.getElementById("lockSentence");
 
-// Timers & intervals (in seconds)
-let emotionInterval = 60;
-let roleInterval = 60;
-let sentenceInterval = 60;
+/************************************************
+ * Timer Variables and Intervals
+ ************************************************/
+let emotionInterval = defaultSettings.emotionInterval;
+let roleInterval = defaultSettings.roleInterval;
+let sentenceInterval = defaultSettings.sentenceInterval;
 let emotionTimer, roleTimer, sentenceTimer;
 
-// Current objects
-let currentEmotion = null; // { en, et, desc_en, desc_et }
-let currentRole = null;    // { en, et }
-let currentSentence = "";  // a string
+// Current objects for generated data
+let currentEmotion = null; // Expected structure: { en, et, desc_en, desc_et }
+let currentRole = null;    // Expected structure: { en, et }
+let currentSentence = "";  // A string
 
 /************************************************
- * Generate Data
+ * Generate Data Functions
  ************************************************/
 function generateEmotion() {
   if (!lockEmotion.checked && emotionsData.length > 0) {
@@ -229,7 +243,7 @@ function updateDisplayOptions() {
 }
 
 /************************************************
- * Timers
+ * Timers Functions
  ************************************************/
 function startTimers() {
   clearTimers();
@@ -264,7 +278,7 @@ function initSettingsPanel() {
   toggleBtn.addEventListener("click", () => {
     isOpen = !isOpen;
     settingsPanel.style.display = isOpen ? "block" : "none";
-    updateUITranslations(); // Update the toggle text after changing state
+    updateUITranslations();
   });
 
   // Save Settings button event listener
@@ -274,9 +288,10 @@ function initSettingsPanel() {
   const sIntervalInput = document.getElementById("sentenceInterval");
 
   saveBtn.addEventListener("click", () => {
-    emotionInterval = parseInt(eIntervalInput.value, 10) || 60;
-    roleInterval = parseInt(rIntervalInput.value, 10) || 60;
-    sentenceInterval = parseInt(sIntervalInput.value, 10) || 60;
+    // Update intervals from the input fields (or fallback to defaults)
+    emotionInterval = parseInt(eIntervalInput.value, 10) || defaultSettings.emotionInterval;
+    roleInterval = parseInt(rIntervalInput.value, 10) || defaultSettings.roleInterval;
+    sentenceInterval = parseInt(sIntervalInput.value, 10) || defaultSettings.sentenceInterval;
 
     startTimers();
     alert(uiTranslations[getSelectedLanguage()].settingsSavedAlert);
@@ -311,13 +326,16 @@ function init() {
   document.getElementById("displayEmotionDesc").addEventListener("change", updateDisplayOptions);
   document.getElementById("displayTitles").addEventListener("change", updateDisplayOptions);
 
-  // Set UI translations initially
+  // Set UI translations and display options initially
   updateUITranslations();
-
-  // Set initial display options
   updateDisplayOptions();
 
-  // First shuffle + start timers
+  // Set the HTML input fields to reflect the default intervals
+  document.getElementById("emotionInterval").value = emotionInterval;
+  document.getElementById("roleInterval").value = roleInterval;
+  document.getElementById("sentenceInterval").value = sentenceInterval;
+
+  // First shuffle and start timers
   shuffleAll();
   startTimers();
 }
