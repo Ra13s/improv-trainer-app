@@ -38,7 +38,7 @@ const uiTranslations = {
     displayTitles: "Display Section Titles"
   },
   et: {
-    title: "Improvisatsiooni Treener",
+    title: "Impro Treener",
     emotionTitle: "Emotsioon",
     roleTitle: "Roll",
     sentenceTitle: "Lause",
@@ -274,9 +274,9 @@ function initSettingsPanel() {
   const sIntervalInput = document.getElementById("sentenceInterval");
 
   saveBtn.addEventListener("click", () => {
-    emotionInterval = parseInt(eIntervalInput.value, 10) || 10;
-    roleInterval = parseInt(rIntervalInput.value, 10) || 15;
-    sentenceInterval = parseInt(sIntervalInput.value, 10) || 20;
+    emotionInterval = parseInt(eIntervalInput.value, 10) || 60;
+    roleInterval = parseInt(rIntervalInput.value, 10) || 60;
+    sentenceInterval = parseInt(sIntervalInput.value, 10) || 60;
 
     startTimers();
     alert(uiTranslations[getSelectedLanguage()].settingsSavedAlert);
