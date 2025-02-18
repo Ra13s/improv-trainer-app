@@ -3,7 +3,7 @@ window.emotionsData = [
     "en": "Happy",
     "et": "Õnnelik",
     "desc_en": "Eyes crinkled at corners, genuine smile reaching the eyes, relaxed shoulders, light bouncy movements, open posture",
-    "desc_et": "Silmanurgad krimpsis, siiras naeratus ulatub silmadeni, lõdvestunud õlad, kerged hõljuvad liigutused, avatud kehahoid"
+    "desc_et": "Silmad nurkadest kortsus, silmadeni ulatuv siiras naeratus, lõdvestunud õlad, kerged põrnikud liigutused, avatud poos."
   },
   {
     "en": "Sad",
@@ -21,20 +21,20 @@ window.emotionsData = [
     "en": "Embarrassed",
     "et": "Kohmetu",
     "desc_en": "Reddened cheeks and ears, shifting weight between feet, self-hugging or touching neck, nervous laughter, looking down or away",
-    "desc_et": "Punetavad põsed ja kõrvad, keha õõtsub jalalt jalale, enesekallistamine või kaela puudutamine, närviline naer, pilk maha või kõrvale"
-  },
+    "desc_et": "Punetavad põsed ja kõrvad, raskuse nihutamine jalgade vahel, enesekallistamine või kaela puudutamine, närviline naer, pilk maha või kõrvale"
+  }, 
   {
     "en": "Excited",
     "et": "Elevil",
     "desc_en": "Quick speech, animated hand gestures, unable to sit still, wide eyes with raised eyebrows, frequent smiling, bouncing energy",
-    "desc_et": "Kiire kõne, elavad käežestid, võimetus paigal püsida, suured silmad tõstetud kulmudega, sage naeratus, põksutav energia"
+    "desc_et": "Kiire kõne, elavad käežestid, võimetus paigal püsida, suured silmad tõstetud kulmudega, sage naeratamine, hüplev energia"
   },
   {
     "en": "Disgusted",
     "et": "Tülgastunud",
     "desc_en": "Wrinkled nose, pulled back head, curled upper lip, squinted eyes, recoiling body movement, hands raised defensively",
     "desc_et": "Krimpsutatud nina, tagasitõmmatud pea, ülespoole tõmmatud ülahuul, kissis silmad, eemalduv kehahoid, tõrjuvalt tõstetud käed"
-  },
+  },  
   {
     "en": "Surprised",
     "et": "Üllatunud",
@@ -63,7 +63,7 @@ window.emotionsData = [
     "en": "Nervous",
     "et": "Närviline",
     "desc_en": "Rapid blinking, playing with objects/hair, shifting stance, quick glances around, throat clearing, rushed speech",
-    "desc_et": "Sage pilgutamine, esemete/juustega mängimine, muutlik kehahoiak, kiired pilgud ringi, kurgu puhastamine, kiirustav kõne"
+    "desc_et": "Sage pilgutamine, esemete/juustega mängimine, muutlik kehahoiak, kiire ümberringi vaatamine, kurgu puhtaks köhimine, kiirustav kõne"
   },
   {
     "en": "Bored",
